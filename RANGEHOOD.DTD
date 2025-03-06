@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
++================================================
+|  RANGEHOOD Configuration File
++================================================
+-->
+<!ELEMENT RANGEHOOD (PROFILE+)>
+<!ELEMENT PROFILE   (DATABASE, DBOBJECT+)>
+<!ELEMENT DATABASE  (URL, USERNAME, PASSWORD)>
+<!ELEMENT URL       (#PCDATA)>
+<!ELEMENT USERNAME  (#PCDATA)>
+<!ELEMENT PASSWORD  (#PCDATA)>
+<!ATTLIST PROFILE
+	append   (Y | N)  #REQUIRED
+	name     CDATA    #REQUIRED
+	output   CDATA    #REQUIRED
+	template CDATA    #REQUIRED
+>
+<!ELEMENT DBOBJECT EMPTY>
+<!ATTLIST DBOBJECT
+	type    (ALL|TABLE|FUNCTION|PROCEDURE|PACKAGE|VIEW|SEQUENCE|TRIGGER|MVIEW|TYPE) #REQUIRED
+ 	include (Y | N)   #REQUIRED
+	name    CDATA     #REQUIRED
+>

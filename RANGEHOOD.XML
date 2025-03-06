@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RANGEHOOD SYSTEM "RANGEHOOD.dtd">
+<!--
++================================================
+|  RANGEHOOD Configuration File
+|  $Header: /TOOL/RANGEHOOD/files/RANGEHOOD.xml 2     28/09/10 1:28p Christopher Ho $
+|
+|  Definition
+|  ==========
+|  /RANGEHOOD                    Root node
+|
+|  /RANGEHOOD/PROFILE            You can have multiple profiles in this configuration file with distinct profile name
+|
+|  /RANGEHOOD/PROFILE/@name      Profile name. This name can be passed as argument to the batch file.
+|                                The default profile is "DEFAULT", which is used if no argment is used to run the program
+|
+|  /RANGEHOOD/PROFILE/@output    Output directory name. It can be relative path (w.r.t. install dir) or full qualified path                  
+|
+|  /RANGEHOOD/PROFILE/@template  Template name for this profile. There must be a directory have the same name under the
+|                                installed directory. Standard installation provides 2 profiles: FANCY or SIMPLE
+|
+|  /RANGEHOOD/PROFILE/@append    Append Mode. If 'Y' template files will not be copied and DBOBJECT info will be 
+|                                added / overwritten to the data generated from the previous run.
+|                                If 'N' template files will be copied to output directory; new dbObject files will be created.
+|
+|  /RANGEHOOD/PROFILE/DATABASE   This node contains database connection info: JDBC URL, username, and password.
+|
+|  /RANGEHOOD/PROFILE/DBOBJECT   Each profile can have multiple DBOBJECT node, and you can put include or exclude information
+|                                in each node.
+|
+|  /RANGEHOOD/PROFILE/DBOBJECT/@include   Value 'Y' if wildcard object names are included; 'N' to exclude specified objects
+|          
+|  /RANGEHOOD/PROFILE/DBOBJECT/@type      Possible values are: ALL,TABLE,FUNCTION,PROCEDURE,PACKAGE,VIEW,SEQUENCE,TRIGGER,MVIEW,TYPE
+|
+|  /RANGEHOOD/PROFILE/DBOBJECT/@name      DBOBject name. Wildcard character (%) can be used.
+|
++================================================
+-->
+<RANGEHOOD>
+	<PROFILE name="DEFAULT" output="output" template="FANCY" append="N">
+		<DATABASE>
+			<URL>jdbc:oracle:thin:@192.168.0.106:1521:R12</URL>
+			<USERNAME>APPS</USERNAME>
+			<PASSWORD>APPS</PASSWORD>
+		</DATABASE>
+		<DBOBJECT include="Y" type="ALL" name="OE%"/>
+	</PROFILE>
+</RANGEHOOD>
