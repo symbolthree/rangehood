@@ -1,0 +1,97 @@
+body { background-color: #FFFFFF; color:#000000;font-family:Helvetica, Arial, sans-serif;}
+a:link, a:active, a:visited {color:#000000;text-decoration:none;}
+a:hover {color:#888888;text-decoration:none;}
+
+/* Headings */
+.level1 {
+	font-size: 16px;
+	background-color: #B3B3FF;
+	font-weight:bold;
+	color:black;
+	padding:5px;}
+
+.level2 , .level2 a {
+ font-size: 14px;
+ background-color: #CCCCFF;
+ color:black;
+ font-weight:bold;
+ padding:5px;}
+
+
+.level3 , .level3 a{
+ font-size: 12px;
+ background-color: #E5E5FF;
+ color:black;
+ font-weight:bold;
+ padding:5px;}
+
+
+.comment {
+	font-size: 11px;
+	padding: 0;
+	margin: 0 ;
+	background: #f0f0f0;
+	line-height: 18px;
+	overflow: auto;
+	overflow-Y: hidden;
+	display: block;}
+
+.inlineComment, .inlineComment td {
+	background-color:f0f0f0;
+	font-size:12px;
+	font-family:courier new;}
+
+.separator {
+	padding:10px; }
+
+.tableTitle {
+	font-size: 13px;
+	color:black;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding:5px;
+	border-bottom: 2px solid #DDDDDD;}
+
+.num {
+	font-size: 11px;
+	font-weight:bold;
+	color:gray;
+	margin-left:auto;
+	margin-right: auto;}
+
+.oddCell {
+	font-size: 11px;
+	color:black;
+	margin-left:auto;
+	margin-right: auto;}
+
+.evenCell {
+	font-size: 11px;
+	background-color:#F0EBFA;
+	color:black;
+	margin-left: auto;
+	margin-right: auto;}
+
+.tableCol {
+	font-size: 15px;
+	background-color: navy;
+	color:white;}
+
+.footer {
+  padding:100px 0 0 0;
+  font-size:9px;
+  color:#CD5C5C;
+}
+
+.header {
+  padding:10px 0 10px 0;
+  vertical-align: middle;
+  font-size:26px;
+  font-weight:bold;
+  color:#CD5C5C;
+}
+
+.footer  a:link, .footer  a:active, .footer  a:visited {color:#942E2E;text-decoration:none;}
+.footer a:hover {color:#CD5C5C;text-decoration:none;}
+}

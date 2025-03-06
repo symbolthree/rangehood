@@ -1,0 +1,120 @@
+body { background-color: #FFFFFF; color:#000000;font-family:Helvetica, Arial, sans-serif;}
+a:link, a:active, a:visited {color:#000000;text-decoration:none;}
+a:hover {color:#888888;text-decoration:none;}
+
+/* Headings */
+.level1 {
+	font-size: 16px;
+	background-color: #5E9DC8;
+	font-weight:bold;
+	color:white;
+	padding:5px;}
+
+.level2 , .level2 a {
+ font-size: 14px;
+ background-color: #85B5D5;
+ color:#F7FDFD;
+ font-weight:bold;
+ padding:5px;}
+
+.level3 , .level3 a {
+ font-size: 13px;
+ background-color: #98C1DC;
+ color:#F7FDFD;
+ font-weight:bold;
+ padding:5px;}
+
+.objType {
+ padding: 0px 20px 0px 0px;
+ font-size:20px;}
+
+.objType2 {
+ padding: 0px 14px 0px 0px;
+ font-size:14px;}
+
+.comment {
+	font-size: 11px;
+	padding: 0;
+	margin: 0 ;
+	background: #F9F6F4;
+	line-height: 15px;
+	overflow: auto;
+	overflow-Y: hidden;
+	display: block;}
+
+.inlineComment, .inlineComment td {
+	background-color:f0f0f0;
+	font-size:12px;
+	font-family:courier new;}
+
+.separator {
+	padding:10px; }
+
+.tableTitle {
+	font-size: 13px;
+	color:black;
+	background-color:f0f0f0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding:5px;
+	border-bottom: 2px solid #DDDDDD;}
+
+.num {
+	font-size: 11px;
+	color:gray;
+	font-weight:bold;
+	margin-left:auto;
+	margin-right: auto;}
+}
+
+.oddCell {
+	font-size: 11px;
+	color:black;
+	margin-left:auto;
+	margin-right: auto;}
+
+.evenCell {
+	font-size: 11px;
+	background-color:#F3FAFC;
+	color:black;
+	margin-left: auto;
+	margin-right: auto;}
+
+.colCell {
+	font-size: 11px;
+	background-color:#F3FAFC;
+	font-weight:bold;
+	color:black;
+	margin-left: auto;
+	margin-right: auto;}
+}
+
+.tableCol {
+	font-size: 15px;
+	background-color: navy;
+	color:white;}
+
+.footer {
+  padding:100px 0 0 0;
+  font-size:9px;
+  color:#CD5C5C;
+}
+
+.header {
+  padding:10px 0 10px 0;
+  vertical-align: middle;
+  font-size:26px;
+  font-weight:bold;
+  color:#CD5C5C;
+}
+
+pre {
+	font-size: 11px;
+	color:#5F6B61;
+	padding: 0;
+	margin: 0;
+	line-height: 13px;
+	overflow: auto;
+	overflow-Y: hidden;
+}
