@@ -4,3 +4,6 @@ lib
 .project
 *.txt
 build.properties
+release
+target
+dependency-reduced-pom.xml
