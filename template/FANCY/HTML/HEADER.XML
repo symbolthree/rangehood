@@ -4,12 +4,10 @@
 <table>
   <tr>
     <td>
-	    <a href="http://www.symplik.com" target="top">
-		  <img style="border-style: none" src="../HTML/gif/object/logo.gif" alt="SYMPLiK RANGEHOOD" />
-		</a>
-	  </td>
+	  <img style="border-style: none" src="../HTML/gif/object/logo.gif" alt="RANGEHOOD" />
+    </td>
 	<td>
-	  <div class="header">Oracle Object Documentation</div>
+	  <div class="header">${title}</div>
 	</td>
   </tr>
 </table>	
@@ -18,12 +16,10 @@
 <table>
   <tr>
     <td>
-	    <a href="http://www.symplik.com" target="top">
-		  <img style="border-style: none" src="../../HTML/gif/object/logo.gif" alt="SYMPLiK RANGEHOOD"/>
-		</a>
-	  </td>
+	  <img style="border-style: none" src="../../HTML/gif/object/logo.gif" alt="RANGEHOOD"/>
+    </td>
 	<td>
-	  <div class="header">Oracle Object Documentation</div>
+	  <div class="header">${title}</div>
 	</td>
   </tr>
 </table>	

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RANGEHOOD" default="prezip" basedir=".">
+    <tstamp/>
+    <property name="launch4j.dir" location="D:\WORK\launch4j-3.50" />
+    <taskdef name="launch4j"
+             classname="net.sf.launch4j.ant.Launch4jTask"
+             classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar"
+    />
+
+  <target name="init">
+    <propertyfile file="build.properties">
+      <entry key="build.version" type="string" value="2.0"/>
+      <entry key="build.number" type="int" operation="+" default="0"/>
+      <entry key="build.time" type="date" value="now"/>
+      <entry key="build.product" type="string" value="symbolthree rangehood"/>
+    </propertyfile>
+    <property file="build.properties"/>
+    <property name="outputArchive" value="rangehood_${build.version}-build${build.number}.zip"/>
+    <property name="outputDir" value="release/rangehood-${build.version}"/>
+  </target>
+  
+  <target name="maven" depends="init">
+    <exec dir="." executable="cmd" failonerror="true" resultproperty="maven.exit.code">
+        <arg line="/c mvn clean install" />
+    </exec>
+	<echo message="Maven exit code: ${maven.exit.code}" />
+  </target>
+  
+  <target name="prezip" depends="maven">
+    <delete dir="${outputDir}"/>
+	<mkdir  dir="${outputDir}"/>
+    <copy file="template/log4j2.xml" tofile="${outputDir}/log4j2.xml"/>
+	<copy file="template/RANGEHOOD.XML" tofile="${outputDir}/RANGEHOOD.XML"/>
+	<copy file="template/RANGEHOOD.DTD" tofile="${outputDir}/RANGEHOOD.DTD"/>
+	<copy file="template/RANGEHOOD.bat" tofile="${outputDir}/RANGEHOOD.bat"/>
+	<copy file="template/RANGEHOOD.sh" tofile="${outputDir}/RANGEHOOD.sh"/>
+	<mkdir dir="${outputDir}/template/FANCY"/>
+	<mkdir dir="${outputDir}/template/SIMPLE"/>
+	<copy todir="${outputDir}/template/FANCY">
+	  <fileset dir="template/FANCY" includes="**"/>
+	</copy>	
+	<copy todir="${outputDir}/template/SIMPLE">
+	  <fileset dir="template/SIMPLE" includes="**"/>
+	</copy>
+	<copy file="target/rangehood-${build.version}.jar" 
+	      tofile="${outputDir}/rangehood-${build.version}.jar"/>
+  </target>
+</project>
+

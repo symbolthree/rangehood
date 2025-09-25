@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,15 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/TRIGGER.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:55p $
- * $Revision: 2 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
@@ -46,14 +38,9 @@
         <link type="text/css" href="../../HTML/css/rangehood.css" rel="stylesheet"/>
         <link type="text/css" href="../../HTML/css/shCore.css" rel="stylesheet"/>
         <link type="text/css" href="../../HTML/css/shThemeDefault.css" rel="stylesheet"/>
-        <script type="text/javascript" src="../../HTML/js/shCore.js"/>
-        <script type="text/javascript" src="../../HTML/js/shBrushSql.js"/>
-        <script type="text/javascript">
-        	<![CDATA[
-		      SyntaxHighlighter.config.clipboardSwf = '../../HTML/js/clipboard.swf';
-		      SyntaxHighlighter.all();
-		      ]]>
-		</script>
+        <script type="text/javascript" src="../../HTML/js/shCore.js">&#160;</script>
+        <script type="text/javascript" src="../../HTML/js/shBrushSql.js">&#160;</script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
       </HEAD>
       <BODY>
         <xsl:variable name="header" select="document('../../HTML/HEADER.XML',/)"/>
@@ -61,11 +48,15 @@
         <div class="level1">
           <img border="0" src="../../HTML/gif/object/trigger.png" title="TRIGGER"/>
           <img src="../../HTML/gif/object/empty.gif"/>
-          <xsl:value-of select="/DBObject/@name"/>
+		  <span class="objType">TRIGGER</span>
+			<xsl:value-of select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
         </div>
+<!--		
         <pre class="comment">
+      <span>&#160;</span>
           <xsl:value-of select="/DBObject/comment/content"/>
         </pre>
+-->		
         <br/>
         <table cellpadding="5" border="0" cellspacing="0">
           <tr>
@@ -109,7 +100,7 @@
         <div class="level2">
           <a name="source">
             <img border="0" src="../../HTML/gif/object/source.png"/>
-			<img src="../../HTML/gif/object/empty.gif"/>Trigger Source</a>
+            <img src="../../HTML/gif/object/empty.gif"/>Trigger Source</a>
         </div>
         <pre class="brush:sql">
           <xsl:value-of select="/DBObject/body"/>

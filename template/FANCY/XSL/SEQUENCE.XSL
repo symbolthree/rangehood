@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,15 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/SEQUENCE.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/09/10 7:09a $
- * $Revision: 1 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
   <xsl:output method="html" indent="yes"/>
@@ -50,17 +42,18 @@
           <a name="table">
             <img border="0" src="../../HTML/gif/object/sequence.png" title="Sequence"/>
             <img border="0" src="../../HTML/gif/object/empty.gif"/>
-            <xsl:value-of select="/DBObject/@name"/>
+			<span class="objType">SEQUENCE</span>
+			<xsl:value-of select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
           </a>
         </div>
         <table>
-        	<tr><td class="evenCell">Min Value</td><td class="oddCell"><xsl:value-of select="/DBObject/minValue"/></td></tr>
-        	<tr><td class="evenCell">Max Value</td><td class="oddCell"><xsl:value-of select="/DBObject/maxValue"/></td></tr>
-        	<tr><td class="evenCell">Increment By</td><td class="oddCell"><xsl:value-of select="/DBObject/incrementBy"/></td></tr>
-        	<tr><td class="evenCell">Cycle Flag</td><td class="oddCell"><xsl:value-of select="/DBObject/cycleFlag"/></td></tr>
-        	<tr><td class="evenCell">Order Flag</td><td class="oddCell"><xsl:value-of select="/DBObject/orderFlag"/></td></tr>
-        	<tr><td class="evenCell">Cache Size</td><td class="oddCell"><xsl:value-of select="/DBObject/cacheSize"/></td></tr>
-        	<tr><td class="evenCell">Last Number</td><td class="oddCell"><xsl:value-of select="/DBObject/lastNumber"/></td></tr>
+          <tr><td class="evenCell">Min Value</td><td class="oddCell"><xsl:value-of select="/DBObject/minValue"/></td></tr>
+          <tr><td class="evenCell">Max Value</td><td class="oddCell"><xsl:value-of select="/DBObject/maxValue"/></td></tr>
+          <tr><td class="evenCell">Increment By</td><td class="oddCell"><xsl:value-of select="/DBObject/incrementBy"/></td></tr>
+          <tr><td class="evenCell">Cycle Flag</td><td class="oddCell"><xsl:value-of select="/DBObject/cycleFlag"/></td></tr>
+          <tr><td class="evenCell">Order Flag</td><td class="oddCell"><xsl:value-of select="/DBObject/orderFlag"/></td></tr>
+          <tr><td class="evenCell">Cache Size</td><td class="oddCell"><xsl:value-of select="/DBObject/cacheSize"/></td></tr>
+          <tr><td class="evenCell">Last Number</td><td class="oddCell"><xsl:value-of select="/DBObject/lastNumber"/></td></tr>
         </table>
         <div class="separator"/>
         <xsl:variable name="footer" select="document('../../HTML/FOOTER.XML',/)"/>
@@ -68,4 +61,4 @@
       </BODY>
     </HTML>
   </xsl:template>
-</xsl:stylesheet>      
+</xsl:stylesheet>

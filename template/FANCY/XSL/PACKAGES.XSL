@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,15 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/PACKAGES.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:55p $
- * $Revision: 3 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
@@ -38,7 +30,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <HEAD>
         <TITLE>All Packages</TITLE>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="../../HTML/css/rangehood.css" TITLE="Style"/>
+        <LINK REL="stylesheet" TYPE="text/css" HREF="../../HTML/css/rangehood.css" />
       </HEAD>
       <BODY>
         <xsl:variable name="header" select="document('../../HTML/HEADER.XML',/)"/>
@@ -50,9 +42,9 @@
         </div>
         <table>
           <xsl:for-each select="/dbObjects/dbObjectNames/PACKAGE">
-          	<xsl:sort select="."/>          	
+            <xsl:sort select="."/>
             <xsl:variable name="href">
-              <xsl:value-of select="concat(., '.XML')"/>
+              <xsl:value-of select="concat(., '.HTML')"/>
             </xsl:variable>
             <tr>
               <td class="oddCell">

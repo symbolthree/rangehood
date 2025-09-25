@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,15 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/SIMPLE/XSL/VIEW.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:59p $
- * $Revision: 2 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
@@ -50,9 +42,6 @@
        	  <span class="objType">VIEW</span>
           <xsl:value-of select="/DBObject/@name"/>
         </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
         <div class="separator"/>
         <div class="level2">
           <a name="column">COLUMNS</a>
@@ -65,8 +54,6 @@
             <th class="tableTitle" width="50px">Length</th>
             <th class="tableTitle" width="100px">Mandatory</th>
             <th class="tableTitle" width="100px">Default</th>
-            <th class="tableTitle" width="200px">Comment</th>
-            <th class="tableTitle" width="200px">Source Column</th>
           </tr>
           <!-- columns for loop -->
           <xsl:apply-templates select="/DBObject/columns/column"/>
@@ -127,12 +114,6 @@
       </xsl:if>
       <td>
         <xsl:value-of select="@defaultValue"/>
-      </td>
-      <td>
-        <xsl:value-of select="comment"/>
-      </td>
-      <td>
-        <xsl:value-of select="@sourceColumn"/>
       </td>
     </tr>
   </xsl:template>

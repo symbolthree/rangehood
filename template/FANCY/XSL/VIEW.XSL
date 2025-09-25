@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,20 +18,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/VIEW.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:55p $
- * $Revision: 3 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz__'"/>
-  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ /'"/> 
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ /'"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
@@ -46,14 +38,9 @@
         <link type="text/css" href="../../HTML/css/rangehood.css" rel="stylesheet"/>
         <link type="text/css" href="../../HTML/css/shCore.css" rel="stylesheet"/>
         <link type="text/css" href="../../HTML/css/shThemeDefault.css" rel="stylesheet"/>
-        <script type="text/javascript" src="../../HTML/js/shCore.js"/>
-        <script type="text/javascript" src="../../HTML/js/shBrushSql.js"/>
-        <script type="text/javascript">
-        	<![CDATA[
-		      SyntaxHighlighter.config.clipboardSwf = '../../HTML/js/clipboard.swf';
-		      SyntaxHighlighter.all();
-		      ]]>
-		    </script>
+        <script type="text/javascript" src="../../HTML/js/shCore.js">&#160;</script>
+        <script type="text/javascript" src="../../HTML/js/shBrushSql.js">&#160;</script>
+        <script type="text/javascript">SyntaxHighlighter.all();</script>
       </HEAD>
       <BODY>
         <xsl:variable name="header" select="document('../../HTML/HEADER.XML',/)"/>
@@ -62,12 +49,10 @@
           <a name="view">
             <img border="0" src="../../HTML/gif/object/view.png" title="View"/>
             <img src="../../HTML/gif/object/empty.gif"/>
-            <xsl:value-of select="/DBObject/@name"/>
+			<span class="objType">VIEW</span>			
+			<xsl:value-of select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
           </a>
         </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
         <div class="separator"/>
         <div class="level2">
           <a name="column">
@@ -76,13 +61,12 @@
         <table cellpadding="5" border="0" cellspacing="0">
           <tr>
             <th class="tableTitle" width="30px">No</th>
-            <th class="tableTitle" width="100px">Name</th>
-            <th class="tableTitle" width="100px">Type</th>
+            <th class="tableTitle" width="250px">Name</th>
+            <th class="tableTitle" width="125px">Type</th>
             <th class="tableTitle" width="50px">Length</th>
             <th class="tableTitle" width="100px">Mandatory</th>
             <th class="tableTitle" width="100px">Default</th>
             <th class="tableTitle" width="200px">Comment</th>
-            <th class="tableTitle" width="200px">Source Column</th>
           </tr>
           <!-- columns for loop -->
           <xsl:apply-templates select="/DBObject/columns/column"/>
@@ -154,9 +138,6 @@
       </td>
       <td>
         <xsl:value-of select="comment"/>
-      </td>
-      <td>
-        <xsl:value-of select="@sourceColumn"/>
       </td>
     </tr>
   </xsl:template>
