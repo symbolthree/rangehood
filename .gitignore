@@ -1,1 +1,8 @@
-output
+.settings
+.classpath
+.project
+*.txt
+build.properties
+release
+target
+dependency-reduced-pom.xml

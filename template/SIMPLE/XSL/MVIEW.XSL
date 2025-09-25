@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,15 +18,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/SIMPLE/XSL/MVIEW.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:59p $
- * $Revision: 2 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
   <xsl:output method="html" indent="yes"/>
@@ -50,9 +42,6 @@
        	  <span class="objType">MATERIALIZED VIEW</span>
           <xsl:value-of select="/DBObject/@name"/>
         </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
         <div class="separator"/>
         <table cellpadding="5" border="0" cellspacing="0">
         	<tr><td class="evenCell" width="150px">Updatable</td><td class="oddCell"><xsl:value-of select="/DBObject/updatable" /></td></tr>
@@ -73,7 +62,6 @@
             <th class="tableTitle" width="100px">Name</th>
             <th class="tableTitle" width="100px">Type</th>
             <th class="tableTitle" width="50px">Length</th>
-            <th class="tableTitle" width="150px">Comment</th>
           </tr>
           <!-- columns for loop -->
           <xsl:apply-templates select="/DBObject/columns/column"/>
@@ -162,9 +150,6 @@
       </td>
       <td>
         <xsl:value-of select="$typeLength"/>
-      </td>
-      <td>
-        <xsl:value-of select="comment"/>
       </td>
     </tr>
   </xsl:template>

@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,20 +18,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/PROCEDURE.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:55p $
- * $Revision: 3 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz__'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ /'"/>
+  <xsl:variable name="objName" select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
   <xsl:template match="/">
     <HTML>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -41,7 +34,7 @@
           <xsl:text>Procedure </xsl:text>
           <xsl:value-of select="/DBObject/@schema"/>
           <xsl:text>.</xsl:text>
-          <xsl:value-of select="/DBObject/@name"/>
+		  <xsl:value-of select="$objName"/>
         </TITLE>
         <LINK REL="stylesheet" TYPE="text/css" HREF="../../HTML/css/rangehood.css" TITLE="Style"/>
       </HEAD>
@@ -49,35 +42,24 @@
         <xsl:variable name="header" select="document('../../HTML/HEADER.XML',/)"/>
         <xsl:copy-of select="$header/headers/header[@level='2']/node()"/>
         <div class="level1">
-          <img border="0" src="../../HTML/gif/object/procedure.png" title="PROCEDURE"/>
-          <img src="../../HTML/gif/object/empty.gif"/>
-          <xsl:value-of select="/DBObject/@name"/>
-        </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
-        <div class="inlineComment">
-          <table>
-            <xsl:for-each select="/DBObject/comment/tags/tag[@name='param']">
-              <tr>
-                <td width="150px">
-                  <xsl:value-of select="@value"/>
-                </td>
-                <td width="500px">
-                  <xsl:value-of select="@comment"/>
-                </td>
-              </tr>
-            </xsl:for-each>
-          </table>
+          <a name="procedure">
+            <img border="0" src="../../HTML/gif/object/procedure.png" title="PROCEDURE"/>
+            <img src="../../HTML/gif/object/empty.gif"/>
+			<span class="objType">PRODCEDURE</span>
+			<xsl:value-of select="$objName"/>
+          </a>
+          <a href="{$objName}.SQL" target="_new" class="source">
+            <img class="text" src="../../HTML/gif/object/text.png"/>
+          </a>
         </div>
         <br/>
-        <table cellpadding="5" border="0" cellspacing="0">
+        <table cellpadding="3" border="0" cellspacing="0">
           <tr class="tableTitle">
-          	<th width="30px">No</th>
+            <th width="30px">No</th>
             <th width="150px">Argument</th>
             <th width="100px">In / Out</th>
             <th width="150px">Data Type</th>
-            <th width="200px">Default</th>
+            <th width="200px">Defaulted</th>
           </tr>
           <xsl:for-each select="/DBObject/args/argument">
             <xsl:variable name="bgcolor">
@@ -99,7 +81,7 @@
             <tr class="{$bgcolor}">
               <td class="num">
                 <xsl:value-of select="@position"/>
-              </td>            	
+              </td>
               <td>
                 <xsl:value-of select="@name"/>
               </td>
@@ -113,7 +95,7 @@
                 <xsl:value-of select="@type"/>
               </td>
               <td>
-                <xsl:value-of select="@defaultValue"/>
+                <xsl:value-of select="@defaulted"/>
               </td>
             </tr>
           </xsl:for-each>

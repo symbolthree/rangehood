@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,18 +18,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/SIMPLE/XSL/PACKAGE.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:59p $
- * $Revision: 2 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
+  <xsl:variable name="objName" select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
   <xsl:template match="/">
     <HTML>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -48,24 +41,8 @@
         <xsl:copy-of select="$header/header/node()"/>
         <div class="level1">
        	  <span class="objType">PACKAGE</span>
-          <xsl:value-of select="/DBObject/@name"/>
-        </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
-        <div class="inlineComment">
-          <table>
-            <xsl:for-each select="/DBObject/comment/tags/tag">
-              <tr>
-                <td width="150px">
-                  <xsl:value-of select="@name"/>
-                </td>
-                <td width="500px">
-                  <xsl:value-of select="@value"/>
-                </td>
-              </tr>
-            </xsl:for-each>
-          </table>
+		  <xsl:value-of select="$objName"/>
+		  <a href="{$objName}.SQL" target="_new"><span class="source">source</span></a>
         </div>
         <div class="separator"/>
         <div class="level2">
@@ -110,23 +87,6 @@
               <span class="objType2"><xsl:value-of select="@objectType"/></span>
               <xsl:value-of select="@name"/>
             </a>
-          </div>
-          <pre class="comment">
-            <xsl:value-of select="comment"/>
-          </pre>
-          <div class="inlineComment">
-            <table>
-              <xsl:for-each select="comment/tags/tag[@name='param']">
-                <tr>
-                  <td width="150px">
-                    <xsl:value-of select="@value"/>
-                  </td>
-                  <td width="500px">
-                    <xsl:value-of select="@comment"/>
-                  </td>
-                </tr>
-              </xsl:for-each>
-            </table>
           </div>
           <br/>
           <table cellpadding="5" border="0" cellspacing="0">

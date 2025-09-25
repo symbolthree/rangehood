@@ -1,9 +1,8 @@
 <!--
 /******************************************************************************
- *
- * SYMPLiK RANGEHOOD
- * Copyright (C) 2010 Christopher Ho / SYMPLiK Tech. Co. Ltd.
- * All Rights Reserved, http://www.symplik.com
+ * ≡ RANGEHOOD ≡
+ * Copyright (C) 2009-2025 Christopher Ho
+ * All Rights Reserved, http://www.symbolthree.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,20 +18,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
- * E-mail: christopher.ho@symplik.com
- *
- * ================================================
- *
- * $Archive: /TOOL/RANGEHOOD/template/FANCY/XSL/TABLE.XSL $
- * $Author: Christopher Ho $
- * $Date: 11/10/10 1:55p $
- * $Revision: 4 $
- *****************************************************************************/
+ * E-mail: christopher.ho@symbolthree.com
+******************************************************************************/
 -->
-<xsl:stylesheet version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz__'"/>
-  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ /'"/> 
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ /'"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
@@ -43,7 +35,7 @@
           <xsl:text>.</xsl:text>
           <xsl:value-of select="/DBObject/@name"/>
         </TITLE>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="../../HTML/css/rangehood.css" TITLE="Style"/>
+        <LINK REL="stylesheet" TYPE="text/css" HREF="../../HTML/css/rangehood.css" />
       </HEAD>
       <BODY>
         <xsl:variable name="header" select="document('../../HTML/HEADER.XML',/)"/>
@@ -52,12 +44,10 @@
           <a name="table">
             <img border="0" src="../../HTML/gif/object/table.png" title="Table"/>
             <img border="0" src="../../HTML/gif/object/empty.gif"/>
-            <xsl:value-of select="/DBObject/@name"/>
+			<span class="objType">TABLE</span>
+			<xsl:value-of select="concat(/DBObject/@schema, '.' , /DBObject/@name)"/>
           </a>
         </div>
-        <pre class="comment">
-          <xsl:value-of select="/DBObject/comment/content"/>
-        </pre>
         <div class="separator"/>
         <div class="level2">
           <a name="column">
@@ -65,8 +55,8 @@
         </div>
         <table cellpadding="5" border="0" cellspacing="0">
           <tr>
-           	<th class="tableTitle" width="30px">No</th>          	
-            <th class="tableTitle" width="100px">Name</th>
+            <th class="tableTitle" width="30px">No</th>
+            <th class="tableTitle" width="200px">Name</th>
             <th class="tableTitle" width="100px">Type</th>
             <th class="tableTitle" width="50px">Length</th>
             <th class="tableTitle" width="100px">Mandatory</th>
@@ -104,7 +94,7 @@
             </div>
             <table cellpadding="5" border="0" cellspacing="0">
               <tr>
-                <th class="tableTitle" width="100px">Name</th>
+                <th class="tableTitle" width="200px">Name</th>
                 <th class="tableTitle" width="100px">Type</th>
                 <th class="tableTitle" width="100px">Column</th>
                 <th class="tableTitle" width="350px">Details</th>
@@ -123,10 +113,10 @@
             </div>
             <table cellpadding="5" border="0" cellspacing="0">
               <tr>
-                <th class="tableTitle" width="100px">Name</th>
-                <th class="tableTitle" width="30px">Owner</th>
-                <th class="tableTitle" width="100px">Type</th>
-                <th class="tableTitle" width="100px">Event</th>
+                <th class="tableTitle" width="200px">Name</th>
+                <th class="tableTitle" width="50px">Owner</th>
+                <th class="tableTitle" width="150px">Type</th>
+                <th class="tableTitle" width="150px">Event</th>
               </tr>
               <!-- trigger for loop -->
               <xsl:apply-templates select="/DBObject/triggers/trigger"/>
@@ -289,11 +279,11 @@
               </tr>
             </xsl:for-each>
           </table>
-          <img src="../../HTML/gif/object/reference.png"/>          
+          <img src="../../HTML/gif/object/reference.png"/>
         </xsl:if>
         <xsl:if test="@type!='R'">
           <xsl:value-of select="details"/>
-        </xsl:if>          
+        </xsl:if>
       </td>
     </tr>
   </xsl:template>
